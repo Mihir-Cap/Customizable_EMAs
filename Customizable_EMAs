@@ -1,0 +1,37 @@
+//@version=5
+indicator(title="Customizable EMAs", overlay=true)
+
+// Input variables
+input_ema5_period = input(title="5 EMA Period", defval=5)
+input_ema13_period = input(title="13 EMA Period", defval=13)
+input_ema26_period = input(title="26 EMA Period", defval=26)
+input_ema50_period = input(title="50 EMA Period", defval=50)
+input_ema200_period = input(title="200 EMA Period", defval=200)
+
+// Boolean inputs to control whether each EMA line is plotted
+input_show_ema5 = input(title="Show 5 EMA", defval=true)
+input_show_ema13 = input(title="Show 13 EMA", defval=true)
+input_show_ema26 = input(title="Show 26 EMA", defval=true)
+input_show_ema50 = input(title="Show 50 EMA", defval=true)
+input_show_ema200 = input(title="Show 200 EMA", defval=true)
+
+// Calculate EMAs
+ema5 = ta.ema(close, input_ema5_period)
+ema13 = ta.ema(close, input_ema13_period)
+ema26 = ta.ema(close, input_ema26_period)
+ema50 = ta.ema(close, input_ema50_period)
+ema200 = ta.ema(close, input_ema200_period)
+
+// Variables to hold the plot function calls
+plot_ema5 = input_show_ema5 ? ema5 : na
+plot_ema13 = input_show_ema13 ? ema13 : na
+plot_ema26 = input_show_ema26 ? ema26 : na
+plot_ema50 = input_show_ema50 ? ema50 : na
+plot_ema200 = input_show_ema200 ? ema200 : na
+
+// Plot the EMA lines
+plot(plot_ema5, color=color.blue, linewidth=1)
+plot(plot_ema13, color=color.yellow, linewidth=1)
+plot(plot_ema26, color=color.purple, linewidth=1)
+plot(plot_ema50, color=color.green, linewidth=1)
+plot(plot_ema200, color=color.red, linewidth=1)
