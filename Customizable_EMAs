@@ -35,3 +35,4 @@ plot(plot_ema13, color=color.yellow, linewidth=1)
 plot(plot_ema26, color=color.purple, linewidth=1)
 plot(plot_ema50, color=color.green, linewidth=1)
 plot(plot_ema200, color=color.red, linewidth=1)
+
